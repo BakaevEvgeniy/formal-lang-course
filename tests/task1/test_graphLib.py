@@ -1,5 +1,6 @@
 import filecmp
 import project.graphLib
+import os
 
 
 def test_get_graph_info():
@@ -36,3 +37,4 @@ def test_build_two_cycles_graph():
     assert filecmp.cmp(
         "./tests/task1/builded_graph.dot", "./tests/task1/expected_graph.dot"
     )
+    os.remove("./tests/task1/builded_graph.dot")
