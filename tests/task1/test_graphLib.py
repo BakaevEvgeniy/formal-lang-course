@@ -30,7 +30,7 @@ def test_get_graph_info():
 
 
 def test_build_two_cycles_graph():
-    project.graphLib.build_two_cycles_graph(
+    project.graphLib.create_and_write_two_cycles_graph(
         2, 3, ["a", "b"], "./tests/task1/builded_graph.dot"
     )
     assert filecmp.cmp(

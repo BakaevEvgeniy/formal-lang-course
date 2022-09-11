@@ -15,6 +15,6 @@ def get_graph_info(graph_name: string):
     return nodes_num, edges_num, labels
 
 
-def build_two_cycles_graph(n, m, labels, path):
+def create_and_write_two_cycles_graph(n, m, labels, path):
     graph = cfpq_data.labeled_two_cycles_graph(n, m, labels=labels)
     networkx.drawing.nx_pydot.write_dot(graph, path)
