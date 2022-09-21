@@ -7,7 +7,7 @@ from networkx import MultiDiGraph
 
 
 def create_dfa_from_regex(regex: Regex) -> DeterministicFiniteAutomaton:
-    return regex.to_epsilon_nfa().to_deterministic().minimize()
+    return regex.to_epsilon_nfa().minimize()
 
 
 def create_nfa_from_graph(
