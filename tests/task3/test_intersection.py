@@ -1,4 +1,4 @@
-import project.FABoolMat
+import project.boolDecomposition
 from pyformlang.finite_automaton import (
     DeterministicFiniteAutomaton,
     NondeterministicFiniteAutomaton,
@@ -23,8 +23,8 @@ def test_intersection_with_empty():
     first.add_transition(state_q, symbol_1, state_q)
 
     second = DeterministicFiniteAutomaton()
-    bool_dec_first = project.FABoolMat.BoolDecomposition(first)
-    bool_dec_second = project.FABoolMat.BoolDecomposition(second)
+    bool_dec_first = project.boolDecomposition.BoolDecomposition(first)
+    bool_dec_second = project.boolDecomposition.BoolDecomposition(second)
 
     actual_intersection = bool_dec_first.intersection(bool_dec_second)
     actual_automata = actual_intersection.to_automata()
@@ -35,8 +35,8 @@ def test_intersection_two_empty():
     first = DeterministicFiniteAutomaton()
     second = DeterministicFiniteAutomaton()
 
-    bool_dec_first = project.FABoolMat.BoolDecomposition(first)
-    bool_dec_second = project.FABoolMat.BoolDecomposition(second)
+    bool_dec_first = project.boolDecomposition.BoolDecomposition(first)
+    bool_dec_second = project.boolDecomposition.BoolDecomposition(second)
 
     actual_intersection = bool_dec_first.intersection(bool_dec_second)
     actual_automata = actual_intersection.to_automata()
@@ -69,8 +69,8 @@ def test_intersection():
     second.add_transition(state_s, symbol_0, state_s)
     second.add_transition(state_s, symbol_1, state_s)
 
-    bool_dec_first = project.FABoolMat.BoolDecomposition(first)
-    bool_dec_second = project.FABoolMat.BoolDecomposition(second)
+    bool_dec_first = project.boolDecomposition.BoolDecomposition(first)
+    bool_dec_second = project.boolDecomposition.BoolDecomposition(second)
 
     actual_intersection = bool_dec_first.intersection(bool_dec_second)
     actual_automata = actual_intersection.to_automata()

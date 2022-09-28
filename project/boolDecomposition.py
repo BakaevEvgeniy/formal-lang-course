@@ -64,6 +64,18 @@ class BoolDecomposition:
                     res_of_intersection.final_states.add(new_state)
         return res_of_intersection
 
+    def transitive_closure(self):
+        if not self.bool_mats.values():
+            return dok_matrix((1, 1))
+
+        res = sum(self.bool_mats.values())
+        while True:
+            old = res
+            res += res @ res
+            if res.nnz == old.nnz:
+                break
+        return res
+
     def to_automata(self):
         automaton = NondeterministicFiniteAutomaton()
         for label, bool_mat in self.bool_mats.items():
