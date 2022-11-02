@@ -72,11 +72,11 @@ def test_create_nfa_from_graph_without_start_and_final_nodes():
     os.remove("./tests/task2/actual_cycles_graph_without_start_and_final_nodes.dot")
 
 
-def test_create_nfa_from_graph_dataset():
-    graph_path = cfpq_data.download("generations")
-    graph = cfpq_data.graph_from_csv(graph_path)
+# def test_create_nfa_from_graph_dataset():
+#     graph_path = cfpq_data.download("generations")
+#     graph = cfpq_data.graph_from_csv(graph_path)
 
-    automaton = create_nfa_from_graph(graph)
+#     automaton = create_nfa_from_graph(graph)
 
-    assert len(automaton.final_states) == len(graph.nodes)
-    assert len(automaton.start_states) == len(graph.nodes)
+#     assert len(automaton.final_states) == len(graph.nodes)
+#     assert len(automaton.start_states) == len(graph.nodes)

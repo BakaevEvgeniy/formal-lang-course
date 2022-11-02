@@ -1,0 +1,4 @@
+S -> A
+A -> B B 0 | epsilon
+B -> C
+C -> 0 | 1
