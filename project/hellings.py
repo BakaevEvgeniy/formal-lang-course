@@ -54,7 +54,6 @@ def hellings(cfg, graph) -> set[Tuple[int, str, int]]:
             eps_productions.add(p.head.value)
 
     for u, v, ddict in graph.edges(data=True):
-        print(ddict)
         for p in terminal_productions:
             if ddict["label"] == p.body[0].value:
                 result.add((u, p.head, v))
