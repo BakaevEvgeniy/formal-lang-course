@@ -2,7 +2,7 @@ from project.cyk import CYK
 from pyformlang.cfg import CFG
 
 
-def test_syk():
+def test_сyk():
     cfg = CFG.from_text(
         """
                         S -> B B
