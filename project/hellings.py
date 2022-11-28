@@ -1,11 +1,10 @@
 from typing import Tuple
 from networkx import MultiDiGraph
-from pyformlang.cfg import CFG
-
+from pyformlang.cfg import CFG, Variable
 from project.cfgLib import cfg_to_weak_normal_form
 
 
-def hellings(cfg: CFG, graph: MultiDiGraph) -> set[Tuple[int, str, int]]:
+def hellings(cfg: CFG, graph: MultiDiGraph) -> set[Tuple[int, Variable, int]]:
     nodes_num = graph.number_of_nodes()
     if nodes_num == 0:
         return set()
