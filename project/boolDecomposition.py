@@ -13,12 +13,14 @@ class BoolDecomposition:
             self.start_states = set()
             self.final_states = set()
             self.state_indxs = {}
+            self.indx_to_state = {}
             self.bool_mats = {}
         else:
             self.num_states = len(fa.states)
             self.start_states = fa.start_states
             self.final_states = fa.final_states
             self.state_indxs = {state: indx for indx, state in enumerate(fa.states)}
+            self.indx_to_state = {indx: state for indx, state in enumerate(fa.states)}
             self.bool_mats = {}
             for state_from, trans in fa.to_dict().items():
                 for label, state_to in trans.items():
