@@ -4,22 +4,22 @@ from typing import Tuple
 from networkx import MultiDiGraph
 from pyformlang.cfg import CFG
 from project.automataLib import create_nfa_from_graph
-from project.pygraphblas_lib.boolDecomposition import BoolDecomposition
+from project.pycubool.boolDecomposition import BoolDecomposition
 from project.rsm import RSM, rsm_minimize
 from project.ecfg import ECFG
-
-
 
 
 def tensor(cfg: CFG, graph: MultiDiGraph) -> set[Tuple[int, str, int]]:
     graph_matrix = BoolDecomposition(create_nfa_from_graph(graph))
     rsm = rsm_minimize(RSM.rsm_from_ecfg((ECFG.ecfg_from_cfg(cfg))))
     rsm_matrix = BoolDecomposition(rsm.rsm_to_single_NFA())
-            
-    identity_matrix = Matrix.empty(shape=(graph_matrix.num_states, graph_matrix.num_states))
+
+    identity_matrix = Matrix.empty(
+        shape=(graph_matrix.num_states, graph_matrix.num_states)
+    )
     for i in range(graph_matrix.num_states):
         identity_matrix[i, i] = True
-    
+
     for var in cfg.get_nullable_symbols():
         if var.value in graph_matrix.bool_mats.keys():
             graph_matrix.bool_mats[var.value] += identity_matrix

@@ -32,7 +32,9 @@ class BoolDecomposition:
                         indx_from = self.state_indxs[state_from]
                         indx_to = self.state_indxs[s_to]
                         if label not in self.bool_mats.keys():
-                            self.bool_mats[label] = Matrix.empty(shape=(self.num_states, self.num_states))
+                            self.bool_mats[label] = Matrix.empty(
+                                shape=(self.num_states, self.num_states)
+                            )
 
                         self.bool_mats[label][indx_from, indx_to] = True
 
@@ -42,7 +44,9 @@ class BoolDecomposition:
         intersection_labels = {}
         labels = self.bool_mats.keys() & other.bool_mats.keys()
         for label in labels:
-            intersection_labels[label] = self.bool_mats[label].kronecker(other.bool_mats[label])
+            intersection_labels[label] = self.bool_mats[label].kronecker(
+                other.bool_mats[label]
+            )
         res_of_intersection.bool_mats = intersection_labels
 
         for self_state, self_indx in self.state_indxs.items():
@@ -71,7 +75,7 @@ class BoolDecomposition:
         res = Matrix.empty(shape=(n, n))
         for bm in self.bool_mats.values():
             res.ewiseadd(bm, out=res)
-            
+
         while True:
             old_nvals = res.nvals
             res.mxm(res, out=res, accumulate=True)

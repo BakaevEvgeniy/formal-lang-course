@@ -1,5 +1,5 @@
 from project.cfpq import cfpq_hellings
-from project.pygraphblas_lib.cfpq import cfpq_tensor, cfpq_matrix
+from project.pycubool.cfpq import cfpq_tensor, cfpq_matrix
 from pyformlang.cfg import CFG
 from networkx import MultiDiGraph
 from pyformlang.cfg import CFG
@@ -26,6 +26,7 @@ def test_simple_grammar():
     assert res == res_tensor
     res_matrix = cfpq_matrix(graph, cfg)
     assert res == res_matrix
+
 
 def test_chain():
 
@@ -140,5 +141,6 @@ def test_special_nodes():
             1,
             2,
             3,
-        ],)
+        ],
+    )
     assert res == res_matrix

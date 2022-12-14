@@ -5,6 +5,7 @@ from project.cfgLib import cfg_to_weak_normal_form
 
 from pycubool import Matrix
 
+
 def matrix_based(cfg: CFG, graph: MultiDiGraph) -> set[Tuple[int, Variable, int]]:
     nodes_num = graph.number_of_nodes()
     if nodes_num == 0:
@@ -43,10 +44,10 @@ def matrix_based(cfg: CFG, graph: MultiDiGraph) -> set[Tuple[int, Variable, int]
         for p in var_productions:
             old_nnz = matrices[p.head.value].nvals
             matrices.get(p.body[0].value, Matrix.empty((nodes_num, nodes_num))).mxm(
-                    matrices.get(p.body[1].value, Matrix.empty((nodes_num, nodes_num))),
-                    out=matrices[p.head.value],
-                    accumulate=True,
-                )
+                matrices.get(p.body[1].value, Matrix.empty((nodes_num, nodes_num))),
+                out=matrices[p.head.value],
+                accumulate=True,
+            )
             new_nnz = matrices[p.head.value].nvals
             changed = old_nnz != new_nnz
 

@@ -12,7 +12,7 @@ def get_graph_info(graph_name: string):
     for edge in graph.edges(data=True):
         if edge[2]["label"] not in labels:
             labels.append(edge[2]["label"])
-    return nodes_num, edges_num, labels
+    return graph, nodes_num, edges_num, labels
 
 
 def create_and_write_two_cycles_graph(n, m, labels, path):

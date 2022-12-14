@@ -4,9 +4,8 @@ from networkx import MultiDiGraph
 from pyformlang.cfg import CFG, Variable
 import cfpq_data
 from project.cfgLib import read_cfg_from_file
-from project.pygraphblas_lib.tensor import tensor
-from project.pygraphblas_lib.matrix_based import matrix_based
-
+from project.pycubool.tensor import tensor
+from project.pycubool.matrix_based import matrix_based
 
 
 def _cfpq(
